@@ -7,13 +7,10 @@
   <style>
     :root {
       --bg: #f5f5f2;
-      --surface: #ffffff;
       --text: #101010;
       --muted: #666666;
       --line: #dededb;
       --footer: #8f8f8f;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 10px 30px rgba(0, 0, 0, 0.06);
-      --radius-card: 24px;
     }
 
     * {
@@ -30,8 +27,7 @@
       min-height: 100vh;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                   "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -49,7 +45,6 @@
       padding: clamp(40px, 7vw, 72px) 0 clamp(24px, 4vw, 36px);
     }
 
-    /* Titolo sempre al centro e “lungo” */
     .hero-header {
       margin-bottom: clamp(40px, 6vw, 64px);
     }
@@ -69,13 +64,18 @@
 
     .hero-card-link {
       display: block;
-      border-radius: var(--radius-card);
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .hero-card-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.98;
     }
 
     .hero-card-image {
       width: 100%;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow);
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .info-grid {
@@ -121,7 +121,6 @@
       color: var(--footer);
     }
 
-    /* Tablet */
     @media (max-width: 900px) {
       .page {
         width: min(100% - 32px, 1040px);
@@ -133,7 +132,6 @@
       }
     }
 
-    /* Mobile */
     @media (max-width: 640px) {
       .page {
         width: min(100% - 24px, 1040px);
@@ -146,7 +144,7 @@
       }
 
       .hero-header h1 {
-        text-align: center; /* resta centrato anche su mobile */
+        text-align: center;
         font-size: clamp(2.2rem, 7vw, 2.6rem);
       }
 
@@ -155,7 +153,7 @@
       }
 
       .hero-card-image {
-        border-radius: 22px;
+        border-radius: 0;
       }
 
       .info-grid {
