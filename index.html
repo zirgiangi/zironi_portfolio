@@ -30,7 +30,8 @@
       min-height: 100vh;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -43,26 +44,27 @@
     }
 
     .page {
-      width: min(100% - 64px, 860px);
+      width: min(100% - 48px, 1040px);
       margin: 0 auto;
-      padding: 60px 0 26px;
+      padding: clamp(40px, 7vw, 72px) 0 clamp(24px, 4vw, 36px);
     }
 
+    /* Titolo sempre al centro e “lungo” */
     .hero-header {
-      margin-bottom: 62px;
+      margin-bottom: clamp(40px, 6vw, 64px);
     }
 
     .hero-header h1 {
       margin: 0;
       text-align: center;
-      font-size: clamp(3rem, 4vw, 4.15rem);
+      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
       line-height: 0.95;
       letter-spacing: -0.06em;
       font-weight: 700;
     }
 
     .hero-card-wrap {
-      margin-bottom: 72px;
+      margin-bottom: clamp(48px, 6vw, 72px);
     }
 
     .hero-card-link {
@@ -78,29 +80,29 @@
 
     .info-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
-      gap: 54px;
-      padding-top: 48px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.9fr);
+      gap: clamp(40px, 5vw, 64px);
+      padding-top: clamp(40px, 5vw, 52px);
       border-top: 1px solid var(--line);
     }
 
     .info-column h2 {
-      margin: 0 0 26px;
-      font-size: clamp(1.6rem, 1.5vw, 2rem);
+      margin: 0 0 22px;
+      font-size: clamp(1.6rem, 2vw, 2.1rem);
       line-height: 1;
       letter-spacing: -0.05em;
       font-weight: 700;
     }
 
     .info-column p {
-      margin: 0 0 20px;
-      font-size: clamp(1.02rem, 1vw, 1.08rem);
-      line-height: 1.5;
+      margin: 0 0 16px;
+      font-size: clamp(0.95rem, 1vw, 1.02rem);
+      line-height: 1.4;
       color: var(--muted);
     }
 
     .philosophy p {
-      max-width: 33ch;
+      max-width: clamp(40ch, 52ch, 60ch);
     }
 
     .contacts p {
@@ -108,56 +110,48 @@
     }
 
     .site-footer {
-      margin-top: 92px;
+      margin-top: clamp(72px, 8vw, 96px);
       text-align: center;
     }
 
     .site-footer p {
       margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.45;
+      font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+      line-height: 1.4;
       color: var(--footer);
     }
 
+    /* Tablet */
     @media (max-width: 900px) {
       .page {
-        width: min(100% - 48px, 860px);
-        padding-top: 42px;
-      }
-
-      .hero-header {
-        margin-bottom: 42px;
-      }
-
-      .hero-card-wrap {
-        margin-bottom: 52px;
+        width: min(100% - 32px, 1040px);
       }
 
       .info-grid {
         gap: 40px;
-        padding-top: 36px;
+        padding-top: 40px;
       }
     }
 
-    @media (max-width: 700px) {
+    /* Mobile */
+    @media (max-width: 640px) {
       .page {
-        width: min(100% - 24px, 860px);
-        padding-top: 24px;
-        padding-bottom: 20px;
+        width: min(100% - 24px, 1040px);
+        padding-top: 32px;
+        padding-bottom: 24px;
       }
 
       .hero-header {
-        margin-bottom: 26px;
+        margin-bottom: 32px;
       }
 
       .hero-header h1 {
-        text-align: left;
-        font-size: clamp(2.15rem, 7vw, 2.8rem);
-        letter-spacing: -0.055em;
+        text-align: center; /* resta centrato anche su mobile */
+        font-size: clamp(2.2rem, 7vw, 2.6rem);
       }
 
       .hero-card-wrap {
-        margin-bottom: 44px;
+        margin-bottom: 40px;
       }
 
       .hero-card-image {
@@ -171,14 +165,14 @@
       }
 
       .info-column h2 {
-        margin-bottom: 18px;
-        font-size: clamp(1.15rem, 6vw, 1.8rem);
+        margin-bottom: 16px;
+        font-size: clamp(1.3rem, 5.5vw, 1.8rem);
       }
 
       .info-column p {
         margin-bottom: 12px;
-        font-size: 1rem;
-        line-height: 1.4;
+        font-size: 0.95rem;
+        line-height: 1.38;
       }
 
       .philosophy p {
@@ -190,7 +184,7 @@
       }
 
       .site-footer {
-        margin-top: 58px;
+        margin-top: 52px;
       }
 
       .site-footer p {
@@ -206,17 +200,39 @@
     </header>
 
     <section class="hero-card-wrap" aria-label="Intro card">
-      <a href="INSERISCI-QUI-IL-LINK" class="hero-card-link" target="_blank" rel="noopener noreferrer" aria-label="Open project link">
-        <img src="./assets/Card-1.jpg" alt="Hi! I'm Gian Gabriele Zironi and I do design." class="hero-card-image" width="1280" height="856" loading="eager" decoding="async" />
+      <a href="INSERISCI-QUI-IL-LINK"
+         class="hero-card-link"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Open project link">
+        <img
+          src="./assets/card.jpg"
+          alt="Hi! I'm Gian Gabriele Zironi and I do design."
+          class="hero-card-image"
+          width="1280"
+          height="856"
+          loading="eager"
+          decoding="async"
+        />
       </a>
     </section>
 
     <section class="info-grid" aria-label="Design philosophy and contacts">
       <div class="info-column philosophy">
         <h2>Design philosophy</h2>
-        <p>I design clear, honest objects, balancing technical rigor with everyday sensitivity. I’m guided by materials, proportions, and functionality: clean forms, precise details, and discreet technology.</p>
-        <p>I collect vintage tech and experiment with 3D printing and smart components to thoughtfully integrate the digital.</p>
-        <p>My goal is to create products that are legible, repairable, and calm—designs that are understood at a glance and improve with use.</p>
+        <p>
+          I design clear, honest objects, balancing technical rigor with
+          everyday sensitivity. I’m guided by materials, proportions, and
+          functionality: clean forms, precise details, and discreet technology.
+        </p>
+        <p>
+          I collect vintage tech and experiment with 3D printing and smart
+          components to thoughtfully integrate the digital.
+        </p>
+        <p>
+          My goal is to create products that are legible, repairable, and calm
+          — designs that are understood at a glance and improve with use.
+        </p>
       </div>
 
       <div class="info-column contacts">
