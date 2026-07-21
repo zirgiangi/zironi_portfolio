@@ -7,10 +7,13 @@
   <style>
     :root {
       --bg: #f5f5f2;
+      --surface: #ffffff;
       --text: #101010;
       --muted: #666666;
       --line: #dededb;
       --footer: #8f8f8f;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius-card: 24px;
     }
 
     * {
@@ -27,7 +30,8 @@
       min-height: 100vh;
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -40,55 +44,50 @@
     }
 
     .page {
-      width: min(100% - 48px, 1040px);
+      width: min(100% - 64px, 860px);
       margin: 0 auto;
-      padding: clamp(40px, 7vw, 72px) 0 clamp(24px, 4vw, 36px);
+      padding: 60px 0 26px;
     }
 
     .hero-header {
-      margin-bottom: clamp(40px, 6vw, 64px);
+      margin-bottom: 62px;
     }
 
     .hero-header h1 {
       margin: 0;
       text-align: center;
-      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+      font-size: clamp(3rem, 4vw, 4.15rem);
       line-height: 0.95;
       letter-spacing: -0.06em;
       font-weight: 700;
     }
 
     .hero-card-wrap {
-      margin-bottom: clamp(48px, 6vw, 72px);
+      margin-bottom: 72px;
     }
 
     .hero-card-link {
       display: block;
-      transition: transform 180ms ease, opacity 180ms ease;
-    }
-
-    .hero-card-link:hover {
-      transform: translateY(-2px);
-      opacity: 0.98;
+      border-radius: var(--radius-card);
     }
 
     .hero-card-image {
       width: 100%;
-      border-radius: 0;
-      box-shadow: none;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
     }
 
     .info-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.9fr);
-      gap: clamp(40px, 5vw, 64px);
-      padding-top: clamp(40px, 5vw, 52px);
+      grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+      gap: 54px;
+      padding-top: 48px;
       border-top: 1px solid var(--line);
     }
 
     .info-column h2 {
-      margin: 0 0 22px;
-      font-size: clamp(1.6rem, 2vw, 2.1rem);
+      margin: 0 0 26px;
+      font-size: clamp(1.6rem, 1.5vw, 2rem);
       line-height: 1;
       letter-spacing: -0.05em;
       font-weight: 700;
@@ -96,13 +95,13 @@
 
     .info-column p {
       margin: 0 0 16px;
-      font-size: clamp(0.95rem, 1vw, 1.02rem);
+      font-size: 0.98rem;
       line-height: 1.4;
       color: var(--muted);
     }
 
     .philosophy p {
-      max-width: clamp(40ch, 52ch, 60ch);
+      max-width: 40ch;
     }
 
     .contacts p {
@@ -110,50 +109,60 @@
     }
 
     .site-footer {
-      margin-top: clamp(72px, 8vw, 96px);
+      margin-top: 92px;
       text-align: center;
     }
 
     .site-footer p {
       margin: 0;
-      font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+      font-size: 0.85rem;
       line-height: 1.4;
       color: var(--footer);
     }
 
     @media (max-width: 900px) {
       .page {
-        width: min(100% - 32px, 1040px);
+        width: min(100% - 48px, 860px);
+        padding-top: 42px;
+      }
+
+      .hero-header {
+        margin-bottom: 42px;
+      }
+
+      .hero-card-wrap {
+        margin-bottom: 52px;
       }
 
       .info-grid {
         gap: 40px;
-        padding-top: 40px;
+        padding-top: 36px;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
       .page {
-        width: min(100% - 24px, 1040px);
-        padding-top: 32px;
-        padding-bottom: 24px;
+        width: min(100% - 24px, 860px);
+        padding-top: 24px;
+        padding-bottom: 20px;
       }
 
       .hero-header {
-        margin-bottom: 32px;
+        margin-bottom: 26px;
       }
 
       .hero-header h1 {
-        text-align: center;
-        font-size: clamp(2.2rem, 7vw, 2.6rem);
+        text-align: left;
+        font-size: clamp(2.15rem, 7vw, 2.8rem);
+        letter-spacing: -0.055em;
       }
 
       .hero-card-wrap {
-        margin-bottom: 40px;
+        margin-bottom: 44px;
       }
 
       .hero-card-image {
-        border-radius: 0;
+        border-radius: 22px;
       }
 
       .info-grid {
@@ -163,14 +172,14 @@
       }
 
       .info-column h2 {
-        margin-bottom: 16px;
-        font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+        margin-bottom: 18px;
+        font-size: clamp(1.15rem, 6vw, 1.8rem);
       }
 
       .info-column p {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         font-size: 0.95rem;
-        line-height: 1.38;
+        line-height: 1.35;
       }
 
       .philosophy p {
@@ -182,7 +191,7 @@
       }
 
       .site-footer {
-        margin-top: 52px;
+        margin-top: 58px;
       }
 
       .site-footer p {
@@ -204,7 +213,7 @@
          rel="noopener noreferrer"
          aria-label="Open project link">
         <img
-          src="assets/Card 1.png"
+          src="./assets/card.jpg"
           alt="Hi! I'm Gian Gabriele Zironi and I do design."
           class="hero-card-image"
           width="1280"
